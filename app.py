@@ -13,15 +13,12 @@ app = Flask(__name__)
 def proxy():
     # Retrieve request method, URL, headers, and body
     print(request.method)
-    print(request.url)
     print(request.headers)
     print(request.data)
     method = request.method
-    url = request.url
+    url = "https://api.openai.com/v1/chat/completions"
     headers = {key: value for (key, value) in request.headers if key != 'Host'}
     data = request.data
-    if data:
-        print(data)
     # Make the request to the target API server using requests library
     response = requests.request(method, url, headers=headers, data=data, stream=True)
 

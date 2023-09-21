@@ -12,6 +12,10 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST', 'CONNECT'])
 def proxy():
     # Retrieve request method, URL, headers, and body
+    print(request.method)
+    print(request.url)
+    print(request.headers)
+    print(request.data)
     method = request.method
     url = request.url
     headers = {key: value for (key, value) in request.headers if key != 'Host'}
@@ -26,10 +30,10 @@ def proxy():
 
 
 if __name__ == '__main__':
-    # serve(app, host='0.0.0.0', port=8080)
-    box = ProxyBox(base_url='0.0.0.0', port=8080)
-    box.start()
-
-    while True:
-        time.sleep(30)
-        print("Live")
+    serve(app, host='0.0.0.0', port=8080)
+    # box = ProxyBox(base_url='0.0.0.0', port=8080)
+    # box.start()
+    #
+    # while True:
+    #     time.sleep(30)
+    #     print("Live")

@@ -18,6 +18,7 @@ API_HOST = "https://api.openai.com/v1/chat/completions"
 @app.route('/', defaults={'path': ''})  # ref. https://medium.com/@zwork101/making-a-flask-proxy-server-online-in-10-lines-of-code-44b8721bca6
 @app.route('/<path>')
 def redirect_to_API_HOST(path):  #NOTE var :path will be unused as all path we need will be read from :request ie from flask import request
+    print("!!!")
     res = requests.request(  # ref. https://stackoverflow.com/a/36601467/248616
         method          = request.method,
         url             = request.url.replace(request.host_url, f'{API_HOST}/'),

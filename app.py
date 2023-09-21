@@ -27,7 +27,7 @@ def replace_url_handler():
 
     # Return the response object
     # return response.json(), response.status_code, response.headers.items()
-    return response
+    return "hahaha"
 
 
 if __name__ == '__main__':

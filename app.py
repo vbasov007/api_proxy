@@ -27,7 +27,7 @@ def proxy():
 
 if __name__ == '__main__':
     # serve(app, host='0.0.0.0', port=8080)
-    box = ProxyBox(base_url='0.0.0.0', port=1234)
+    box = ProxyBox(base_url='0.0.0.0', port=8080)
     box.start()
 
     while True:

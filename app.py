@@ -3,31 +3,23 @@ import requests
 from waitress import serve
 
 
-import os
-
-# API_HOST = os.environ.get('API_HOST'); assert API_HOST, 'Envvar API_HOST is required'
-API_HOST = r"https://api.openai.com/v1/chat/completions"
-
-
 app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def replace_url_handler():
     # Get the request data
-    data = request.get_json()
+    request_data = request.get_json()
 
-    print(data)
+    print(request_data)
 
     # Get the original request method, headers, and data
-    method = data.get('method')
-    headers = data.get('headers')
-    url = data.get('url')
-    payload = data.get('payload')
+    method = request_data.get('method')
+    headers = request_data.get('headers')
+    url = request_data.get('url')
+    payload = request_data.get('payload')
 
     print(method, headers, url, payload)
     # Replace the URL with the new one
-    new_url = API_HOST
-    url = url.replace(url, new_url)
 
     # Send the updated request with the original method, headers, and data
     response = requests.request(method, url, headers=headers, data=payload)

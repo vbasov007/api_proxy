@@ -22,6 +22,7 @@ def replace_url_handler():
     url = data.get('url')
     payload = data.get('payload')
 
+    print(method, headers, url, payload)
     # Replace the URL with the new one
     new_url = API_HOST
     url = url.replace(url, new_url)

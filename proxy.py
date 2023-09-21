@@ -81,6 +81,7 @@ def ProxyFactory(mock_response=PactResponse()):
         def handle_request(self, http_method, data):
             info = self.info(http_method, data)
             print(info)
+            print(data)
             ARCHIVE.append(info)
             self.respond()
 

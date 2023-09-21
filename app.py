@@ -25,6 +25,8 @@ def replace_url_handler():
     # Send the updated request with the original method, headers, and data
     response = requests.request(method, url, headers=headers, json=payload)
 
+    print(response.json(), response.status_code, response.headers.items())
+
     # Return the response object
     # return response.json(), response.status_code, response.headers.items()
     return "hahaha"

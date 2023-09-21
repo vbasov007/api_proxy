@@ -30,7 +30,7 @@ def replace_url_handler():
     response = requests.request(method, url, headers=headers, data=payload)
 
     # Return the response object
-    return response.text, response.status_code, response.headers.items()
+    return response.json(), response.status_code, response.headers.items()
 
 
 if __name__ == '__main__':

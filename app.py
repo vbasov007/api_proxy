@@ -16,6 +16,8 @@ def replace_url_handler():
     # Get the request data
     data = request.get_json()
 
+    print(data)
+
     # Get the original request method, headers, and data
     method = data.get('method')
     headers = data.get('headers')

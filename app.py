@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import requests
 from waitress import serve
 
@@ -29,7 +29,7 @@ def replace_url_handler():
 
     # Return the response object
     # return response.json(), response.status_code, response.headers.items()
-    return "hahaha"
+    return jsonify(response.json())
 
 
 if __name__ == '__main__':
